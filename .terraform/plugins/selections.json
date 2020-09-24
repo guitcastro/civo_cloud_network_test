@@ -1,0 +1,14 @@
+{
+  "registry.terraform.io/civo/civo": {
+    "hash": "h1:kFPyu7+C9DX+uEl8RC7N1FhwqendSC2umP6z8fMldh4=",
+    "version": "0.9.17"
+  },
+  "registry.terraform.io/hashicorp/null": {
+    "hash": "h1:SEkMbMbBYIVmZVR3cfmbVX+Uaw27+OSPXul4ZNaV7Xo=",
+    "version": "2.1.2"
+  },
+  "registry.terraform.io/hashicorp/tls": {
+    "hash": "h1:z7TK2lLoCjRjAFQxwv0tar8ioDdOcdHj1Apvor0yfdQ=",
+    "version": "2.2.0"
+  }
+}
