@@ -1,4 +1,21 @@
-﻿# civo_cloud_network_test
+﻿# civo_cloud_network_test public ip test
+
+Instance with required_public_ip - false should not have public ip, but his is not happenning
+
+`terraform apply -var civo_token=[your token]`  
+`terrafrom output`
+
+### Output 
+
+```
+bar_public_ip = 91.211.154.113
+bar_public_ip_requiered = false
+foo_public_ip = 91.211.154.82
+foo_public_ip_requiered = none
+```
+
+# civo_cloud_network_test
+
 
 Instance foo should be able to communicate to instance bar because they are in the same network, but this is not happening ...
 

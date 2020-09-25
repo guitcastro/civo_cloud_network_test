@@ -64,6 +64,7 @@ resource "civo_instance" "foo" {
     template = element(data.civo_template.ubuntu.templates, 0).id
     sshkey_id = civo_ssh_key.civo_bastion_key.id
     network_id = civo_network.custom_net.id
+    public_ip_requiered = false
 }
 
 
@@ -73,6 +74,7 @@ resource "civo_instance" "bar" {
     template = element(data.civo_template.ubuntu.templates, 0).id
     sshkey_id = civo_ssh_key.civo_bastion_key.id
     network_id = civo_network.custom_net.id
+    public_ip_requiered = "none"
 }
 
 resource null_resource test {
@@ -87,8 +89,25 @@ resource null_resource test {
 
   provisioner "remote-exec" {
     inline  = [
-      "ping ${civo_instance.bar.private_ip}"
+      "ping -c 4 ${civo_instance.bar.private_ip}"
       ]
   }
-
 }
+
+output "foo_public_ip" {
+  value = civo_instance.foo.public_ip
+}
+
+output "bar_public_ip" {
+  value = civo_instance.bar.public_ip
+}
+
+output "bar_public_ip_requiered" {
+  value = civo_instance.foo.public_ip_requiered
+}
+
+output "foo_public_ip_requiered" {
+  value = civo_instance.bar.public_ip_requiered
+}
+
+ 
